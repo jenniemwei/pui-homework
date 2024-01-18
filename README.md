@@ -2,4 +2,4 @@
 
 Deployed website: https://jenniemwei.github.io/pui-homework/
 
-Repository link: https://github.com/jenniemwei/pui-homework)https://github.com/jenniemwei/pui-homework
+Repository link: https://github.com/jenniemwei/pui-homework
