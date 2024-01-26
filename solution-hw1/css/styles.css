@@ -31,12 +31,17 @@ h3{
 
 img{
     margin: 10px;
-    border:solid black ;
+    border:solid black;
+    width: 400px;
 }
 
 #logo{
     border:none;
     width: 400px;
+}
+.selected{
+    background-color: yellow;
+    font-weight: bold;
 }
 
 hr{
@@ -93,23 +98,11 @@ ul li p{
     padding-left: 15px;
 }
 
-
-ul li img{
-    width: 400px;
-    align-self: center;
-}
-
-
 ul li:hover{
     background-color: yellow;
 }
 
 ul li:hover .product-name{
-    font-weight: bold;
-}
-
-nav a:hover{
-    background-color: yellow;
     font-weight: bold;
 }
 
@@ -122,7 +115,7 @@ nav a:hover{
 /* product detail */
 
 .detail-image{
-    width:600px;
+    width:400px;
 }
 
 #detail-select{
