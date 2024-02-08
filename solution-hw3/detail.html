@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/script.js"></script>
+</head>
+
+<body>
+  <!-- logo -->
+  <header>
+    <a href="index.html">
+      <img id="logo" src="../assets/logo/logo-01.svg" alt="Bun Bun Bakery Logo">
+    </a>
+    <hr id="nav-border">
+    <nav>
+      <a class="selected" href="index.html">PRODUCTS</a>
+      <a href="cart.html">CART</a>
+      <div id="oval">2</div>
+    </nav>
+    <h1>Our hand-made cinnamon rolls</h1>
+  </header>
+
+  <section>
+    <img class="detail-image" src="../assets/products/original-cinnamon-roll.jpg" alt="original cinnamon roll">
+    <div class="container">
+      <p>
+        Customize our delicious, <br>
+        hand-made cinnamon roll to <br>
+        your liking!
+      </p>
+
+      <div id="detail-select">
+        <p>Glazing:</p>
+        <select id="glazingOptions"
+        onchange="glazingChange(this)"></select>
+
+        <p>Pack size:</p>
+        <select id="packOptions" onchange="packSizeChange(this)">
+        </select>
+      </div>
+
+      <section id="add-to-cart">
+        <h2 id="detail-price"></h2>
+        <button>Add to Cart</button>
+      </section>
+    </div>
+  </section>
+
+  <p></p>
+</body>
+
+</html>
