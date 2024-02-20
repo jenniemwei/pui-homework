@@ -1,5 +1,5 @@
 
-// Select
+// Select objects
 let allGlazing = {
   "Keep Original": 0,
   "Sugar Milk": 0,
@@ -37,12 +37,14 @@ for (const [key, value] of Object.entries(allPackSize))  {
 }
 
 // select changes
+//updates roll price by adding glaze price to base
+//then updates displayed price
 function glazingChange(glazeElement) {
   const priceChange = glazeElement.value;
   rollPrice = basePrice + parseFloat(priceChange);
   detailPrice.innerText = "$" + (rollPrice * packSize).toFixed(2);
 }
-
+//updates displayed price multiplying by pack size value
 function packSizeChange(packElement) {
   packSize = packElement.value;
   detailPrice.innerText = "$" + (rollPrice * packSize).toFixed(2);
@@ -75,7 +77,7 @@ class Roll{
   }
 }
 
-
+//adds roll object to cart array
 function addToCart(){
   const currGlaze=glazeSelect.options[glazeSelect.selectedIndex].innerText
   const currPack=packSelect.options[packSelect.selectedIndex].innerText
