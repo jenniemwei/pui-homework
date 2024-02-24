@@ -1,0 +1,66 @@
+
+
+let glazeSelect = document.getElementById("glazingOptions");
+let packSelect = document.getElementById("packOptions");
+let detailPrice = document.getElementById("detail-price");
+let basePrice = 2.49;
+let rollPrice = basePrice;
+let packSize = 1;
+
+// populate options
+for (const [key, value] of Object.entries(allGlazing)) {
+  let glazeOption = document.createElement("option");
+  glazeOption.textContent = key;
+  glazeOption.value = value;
+  glazeSelect.appendChild(glazeOption);
+}
+for (const [key, value] of Object.entries(allPackSize)) {
+  let packOption = document.createElement("option");
+  packOption.textContent = key;
+  packOption.value = value;
+  packSelect.appendChild(packOption);
+}
+
+// select changes
+//updates roll price by adding glaze price to base
+//then updates displayed price
+function glazingChange(glazeElement) {
+  const priceChange = glazeElement.value;
+  rollPrice = basePrice + parseFloat(priceChange);
+  detailPrice.innerText = "$" + (rollPrice * packSize).toFixed(2);
+}
+//updates displayed price multiplying by pack size value
+function packSizeChange(packElement) {
+  packSize = packElement.value;
+  detailPrice.innerText = "$" + (rollPrice * packSize).toFixed(2);
+}
+
+// detail page
+const queryString = window.location.search;
+console.log("hello");
+console.log(queryString);
+const params = new URLSearchParams(queryString);
+const roll = params.get("roll");
+
+basePrice = rolls[roll]["basePrice"];
+detailPrice.innerText = "$" + basePrice;
+
+let header = document.getElementById("detail-header");
+header.innerText = `${roll} Cinnamon Roll`;
+
+let detailImage = document.getElementById("detail-image");
+detailImage.src = `../assets/products/${rolls[roll]["imageFile"]}`;
+
+
+
+//adds roll object to cart array
+function addToCart() {
+  const currGlaze = glazeSelect.options[glazeSelect.selectedIndex].innerText;
+  const currPack = packSelect.options[packSelect.selectedIndex].innerText;
+  const newRoll = new Roll(roll, currGlaze, currPack, basePrice);
+  cart.push(newRoll);
+  console.log(cart);
+}
+
+
+
