@@ -11,8 +11,6 @@ for (const roll of startingRolls) {
   cart.push(roll);
 }
 
-console.log(cart);
-
 //populate cart page dom w rolls from cart array
   let cartContainer = document.getElementById("cart-container");
   let firstChild = cartContainer.firstChild;
@@ -56,13 +54,12 @@ function setItemId(){
         allItems[i].id=`${i}`
     }
 }
-//updates total cart price
+//updates total cart price by geting price from the dom
 function calcTotalPrice(){
     let cartTotal=0;
     const allPrices=document.querySelectorAll(".price")
     for (const price of allPrices){
-        let rollPrice= parseFloat((price.innerText).substring(1))
-        console.log(rollPrice)
+        let rollPrice= parseFloat((price.innerText).substring(1)) //removes dollar sign to get numerical price
         cartTotal+=rollPrice
     }
     document.getElementById("cart-total").innerText = `$ ${(cartTotal).toFixed(2)}`;
@@ -73,7 +70,7 @@ function calcTotalPrice(){
 function removeFromCart(clickedItem) {
   const itemId=clickedItem.id
   cart.splice(itemId,1)
-  console.log(cart)
+  console.log(cart) 
   let cartItem = clickedItem.parentNode;
   cartItem.remove()
   setItemId()

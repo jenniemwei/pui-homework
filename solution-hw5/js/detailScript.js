@@ -37,8 +37,6 @@ function packSizeChange(packElement) {
 
 // detail page
 const queryString = window.location.search;
-console.log("hello");
-console.log(queryString);
 const params = new URLSearchParams(queryString);
 const roll = params.get("roll");
 
