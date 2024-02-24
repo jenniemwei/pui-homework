@@ -12,7 +12,7 @@ let allGlazing = {
     6: 5,
     12: 10,
   };
-  
+
 //rolls data
 const rolls = {
     "Original": {
@@ -52,4 +52,4 @@ class Roll {
   } 
 
 //cart array
-var cart = [];
+let cart = [];
