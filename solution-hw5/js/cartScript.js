@@ -26,7 +26,7 @@ for (const roll of startingRolls) {
 
     cartItem.innerHTML = `
 <div class="item-info">
-  <img class="cart-image" src="../assets/products/${rollImage}" alt="original cinnamon roll">
+  <img class="cart-image" src="../assets/products/${rollImage}" alt="${roll.type} cinnamon roll image">
   <div class="features">
     <p id="roll-name">${roll.type} Cinnamon Roll</p>
     <p id="roll-glaze">Glazing: ${roll.glazing}</p>

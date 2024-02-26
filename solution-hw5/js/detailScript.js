@@ -48,6 +48,7 @@ header.innerText = `${roll} Cinnamon Roll`;
 
 let detailImage = document.getElementById("detail-image");
 detailImage.src = `../assets/products/${rolls[roll]["imageFile"]}`;
+detailImage.alt=`${roll} Cinnamon Roll Image`
 
 
 
