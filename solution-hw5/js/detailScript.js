@@ -3,9 +3,9 @@
 let glazeSelect = document.getElementById("glazingOptions");
 let packSelect = document.getElementById("packOptions");
 let detailPrice = document.getElementById("detail-price");
-let basePrice = 2.49;
-let rollPrice = basePrice;
+
 let packSize = 1;
+
 
 // populate options
 for (const [key, value] of Object.entries(allGlazing)) {
@@ -21,11 +21,28 @@ for (const [key, value] of Object.entries(allPackSize)) {
   packSelect.appendChild(packOption);
 }
 
+// detail page
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const roll = params.get("roll");
+
+let basePrice = rolls[roll]["basePrice"];
+let rollPrice = basePrice;
+detailPrice.innerText = "$" + basePrice;
+
+let header = document.getElementById("detail-header");
+header.innerText = `${roll} Cinnamon Roll`;
+
+let detailImage = document.getElementById("detail-image");
+detailImage.src = `../assets/products/${rolls[roll]["imageFile"]}`;
+detailImage.alt=`${roll} Cinnamon Roll Image`
+
 // select changes
 //updates roll price by adding glaze price to base
 //then updates displayed price
 function glazingChange(glazeElement) {
   const priceChange = glazeElement.value;
+  console.log(basePrice)
   rollPrice = basePrice + parseFloat(priceChange);
   detailPrice.innerText = "$" + (rollPrice * packSize).toFixed(2);
 }
@@ -35,20 +52,6 @@ function packSizeChange(packElement) {
   detailPrice.innerText = "$" + (rollPrice * packSize).toFixed(2);
 }
 
-// detail page
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-const roll = params.get("roll");
-
-basePrice = rolls[roll]["basePrice"];
-detailPrice.innerText = "$" + basePrice;
-
-let header = document.getElementById("detail-header");
-header.innerText = `${roll} Cinnamon Roll`;
-
-let detailImage = document.getElementById("detail-image");
-detailImage.src = `../assets/products/${rolls[roll]["imageFile"]}`;
-detailImage.alt=`${roll} Cinnamon Roll Image`
 
 
 
