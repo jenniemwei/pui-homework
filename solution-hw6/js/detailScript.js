@@ -5,8 +5,6 @@ let packSelect = document.getElementById("packOptions");
 let detailPrice = document.getElementById("detail-price");
 
 let packSize = 1;
-
-
 // populate options
 for (const [key, value] of Object.entries(allGlazing)) {
   let glazeOption = document.createElement("option");
@@ -42,7 +40,6 @@ detailImage.alt=`${roll} Cinnamon Roll Image`
 //then updates displayed price
 function glazingChange(glazeElement) {
   const priceChange = glazeElement.value;
-  console.log(basePrice)
   rollPrice = basePrice + parseFloat(priceChange);
   detailPrice.innerText = "$" + (rollPrice * packSize).toFixed(2);
 }
@@ -53,9 +50,6 @@ function packSizeChange(packElement) {
 }
 
 
-retrieveFromLocalStorage(); //gets initial stored cart when the page reloads
-
-
 //adds roll object to cart array
 function addToCart() {
   const currGlaze = glazeSelect.options[glazeSelect.selectedIndex].innerText;
@@ -64,13 +58,9 @@ function addToCart() {
   cart.push(newRoll);
   saveToLocalStorage();
   retrieveFromLocalStorage();
+  updateCartOval();
 }
 
-
-function saveToLocalStorage(){
-  const cartString=JSON.stringify(cart);
-  localStorage.setItem('storedRollCart', cartString);
-}
 
 
 

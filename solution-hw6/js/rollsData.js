@@ -41,24 +41,3 @@ const rolls = {
     }    
 };
 
-//roll constructor
-class Roll {
-    constructor(rollType, rollGlazing, packSize, basePrice) {
-      this.type = rollType;
-      this.glazing = rollGlazing;
-      this.size = packSize;
-      this.basePrice = basePrice;
-    }
-  } 
-
-//cart array
-let cart =[];
-//storage retrieval
-function retrieveFromLocalStorage(){
-    const cartString=localStorage.getItem('storedRollCart');
-    console.log("poopy",cartString)
-    if (cartString!=null){
-      cart=JSON.parse(cartString);
-    }
-
-  }

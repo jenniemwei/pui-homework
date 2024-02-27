@@ -1,5 +1,3 @@
-retrieveFromLocalStorage(); //retrieves cart from local storage
-
 //populate cart page dom w rolls from cart array
   let cartContainer = document.getElementById("cart-container");
   let firstChild = cartContainer.firstChild;
@@ -59,9 +57,10 @@ function calcTotalPrice(){
 function removeFromCart(clickedItem) {
   const itemId=clickedItem.id
   cart.splice(itemId,1)
-  console.log(cart) 
   let cartItem = clickedItem.parentNode;
   cartItem.remove()
   setItemId()
+  saveToLocalStorage()
   calcTotalPrice()
+  updateCartOval()
 }
