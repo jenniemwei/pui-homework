@@ -57,7 +57,6 @@ function addToCart() {
   const newRoll = new Roll(roll, currGlaze, currPack, basePrice);
   cart.push(newRoll);
   saveToLocalStorage();
-  retrieveFromLocalStorage();
   updateCartOval();
 }
 

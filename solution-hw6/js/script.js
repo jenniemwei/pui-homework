@@ -17,12 +17,14 @@ function retrieveFromLocalStorage() {
   if (cartString != null) {
     cart = JSON.parse(cartString);
   }
+  console.log(cart);
 }
 retrieveFromLocalStorage(); //gets initial stored cart when the page reloads
 
 function saveToLocalStorage(){
     const cartString=JSON.stringify(cart);
     localStorage.setItem('storedRollCart', cartString);
+    console.log(cart);
   }
   
 //updating nav bar cart oval based on cart count
